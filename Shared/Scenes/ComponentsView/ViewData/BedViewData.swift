@@ -28,8 +28,8 @@ struct BedViewData: Equatable {
         BedModel(
             startAvaibility: BedViewData.startAvaibility,
             realizationTime: BedViewData.realizationTime,
-            expectedDemand: weeksData.map { Int($0.demandInput)! },
-            production: weeksData.map { Int($0.productionInput)! }
+            expectedDemand: weeksData.map { $0.demandInput },
+            production: weeksData.map { $0.productionInput }
         )
     }
 }

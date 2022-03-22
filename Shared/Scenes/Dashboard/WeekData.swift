@@ -9,8 +9,8 @@ import Foundation
 
 struct WeekData: Equatable {
     let weekNumber: Int
-    var demandInput  = "0"
-    var productionInput = "0"
+    var demandInput = 0
+    var productionInput = 0
 }
 
 extension WeekData: Identifiable {

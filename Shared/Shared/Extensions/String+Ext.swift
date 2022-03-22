@@ -19,4 +19,5 @@ extension String {
     static let demand_label = "Zapotrzebowanie"
     static let calculate_label = "Oblicz"
     static let result_label = "Wynik"
+    static let reset_label = "Reset"
 }

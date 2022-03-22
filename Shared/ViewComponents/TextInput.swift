@@ -9,9 +9,9 @@ struct TextInput: View {
     
     let title: String
     let prompt: String?
-    @Binding var value: String
+    @Binding var value: Int
     
-    init(title: String, value: Binding<String>, prompt: String? = nil) {
+    init(title: String, value: Binding<Int>, prompt: String? = nil) {
         self.title = title
         self._value = value
         self.prompt = prompt
@@ -23,9 +23,9 @@ struct TextInput: View {
                 .bold()
             Spacer()
             if let prompt = prompt {
-                TextField(title, text: $value, prompt: Text(prompt))
+                TextField(title, value: $value, formatter: NumberFormatter(), prompt: Text(prompt))
             } else {
-                TextField(title, text: $value)
+                TextField(title, value: $value, formatter: NumberFormatter())
             }
         }
     }
@@ -35,6 +35,6 @@ struct TextInput: View {
 
 struct TextInput_Previews: PreviewProvider {
     static var previews: some View {
-        TextInput(title: "Title", value: .constant("0"))
+        TextInput(title: "Title", value: .constant(0))
     }
 }

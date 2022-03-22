@@ -8,9 +8,9 @@ import SwiftUI
 struct ComponentSection: View {
     
     let title: String
-    @Binding var available: String
-    @Binding var batchSize: String
-    @Binding var productionTime: String
+    @Binding var available: Int
+    @Binding var batchSize: Int
+    @Binding var productionTime: Int
     
     var body: some View {
         Section(title) {
@@ -25,6 +25,6 @@ struct ComponentSection: View {
 
 struct ComponentSection_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentSection(title: "Frame", available: .constant("10"), batchSize: .constant("20"), productionTime: .constant("2"))
+        ComponentSection(title: "Frame", available: .constant(10), batchSize: .constant(20), productionTime: .constant(2))
     }
 }

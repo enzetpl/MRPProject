@@ -18,6 +18,16 @@ extension Toolbar {
             Button(title) { action() }
         }
     }
+
+    /// Creates an ToolbarItem item which will be placed in navigationBarLeading.
+    /// - Parameters:
+    ///   - systemImage: Name of the SFSymbol that repserents icon.
+    ///   - action: Action that will be performed when user press the button.
+    static func leading(title: String, action: @escaping () -> Void) -> some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button(title) { action() }
+        }
+    }
     
     static func bottomBar<Content: View>(@ViewBuilder content: @escaping () -> Content) -> some ToolbarContent {
         ToolbarItem(placement: .bottomBar, content: content)

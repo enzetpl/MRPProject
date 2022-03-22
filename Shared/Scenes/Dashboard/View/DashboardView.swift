@@ -24,6 +24,7 @@ struct DashboardView: View {
 
     private var toolbarContent: some ToolbarContent {
         Group {
+            Toolbar.leading(title: .reset_label, action: resetInputData)
             Toolbar.trailing(title: .components_label, action: presentComponentsView)
             Toolbar.bottomBar { CalculateButton(isDisabled: viewModel.isLoading, action: calculateBedMRP) }
         }
@@ -33,6 +34,10 @@ struct DashboardView: View {
     
     private func presentComponentsView() {
         isComponentsViewPresented = true
+    }
+
+    private func resetInputData() {
+        viewModel.resetData()
     }
     
     private func calculateBedMRP() {

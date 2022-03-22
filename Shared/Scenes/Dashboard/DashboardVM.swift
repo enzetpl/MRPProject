@@ -56,4 +56,8 @@ final class DashboardVM: ObservableObject {
             }
             .store(in: &cancellables)
     }
+
+    func resetData() {
+        bedData = .init()
+    }
 }

@@ -15,6 +15,10 @@ struct ComponentsView: View {
     
     var body: some View {
         Form {
+            Section("Łóżko") {
+                TextInput(title: .available_label, value: $viewModel.bedData.startAvaibility)
+                TextInput(title: .productionTime_label, value: $viewModel.bedData.realizationTime)
+            }
             ComponentSection(title: .frame_label,
                              available: components.frame.available,
                              batchSize: components.frame.batchSize,

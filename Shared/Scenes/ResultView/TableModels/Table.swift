@@ -7,6 +7,7 @@ import Foundation
 
 struct Table {
     let title: String
+    let type: TableType
     let items: [TableItem]
 }
 
@@ -28,5 +29,5 @@ extension Table {
         ]
     }
     
-    static let sample = Table(title: "Title", items: sampleItems)
+    static let sample = Table(title: "Title", type: .mrp, items: sampleItems)
 }

@@ -6,7 +6,7 @@
 import Foundation
 
 struct ComponentResult: Decodable, Equatable {
-//    let componentType: ComponentType
+    let type: ComponentType
     let totalDemand: [Int]
     let plannedReceipts: [Int]
     let expectedInStock: [Int]
@@ -17,7 +17,7 @@ struct ComponentResult: Decodable, Equatable {
 
 extension ComponentResult {
     var table: Table {
-        Table(title: "componentType.title", items: tableItems)
+        Table(title: "MRP: \(type.title)", type: .mrp, items: tableItems)
     }
     
     private var numOfWeeks: Int {

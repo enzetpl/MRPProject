@@ -6,9 +6,9 @@
 import Foundation
 
 struct ComponentsViewData: Equatable {
-    var frame = ComponentViewData(type: .frame)
-    var stand = ComponentViewData(type: .stand)
-    var legs = ComponentViewData(type: .legs)
-    var smallPlates = ComponentViewData(type: .smallPlates)
-    var bigPlates = ComponentViewData(type: .bigPlates)
+    var frame = ComponentViewData(for: .frame)
+    var stand = ComponentViewData(for: .stand)
+    var legs = ComponentViewData(for: .legs)
+    var smallPlates = ComponentViewData(for: .smallBoards)
+    var bigPlates = ComponentViewData(for: .bigBoards)
 }

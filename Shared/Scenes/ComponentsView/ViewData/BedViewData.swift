@@ -6,12 +6,11 @@
 import Foundation
 
 struct BedViewData: Equatable {
-    var weeksData = WeekData.forNumberOfWeeks(BedViewData.numberOfWeeks)
+    var numberOfWeeks = 6
+    var startAvaibility = 0
+    var realizationTime = 1
+    var weeksData: [WeekData] = WeekData.forNumberOfWeeks(6)
     var componentsData = ComponentsViewData()
-    
-    static private let startAvaibility = 2
-    static private let realizationTime = 1
-    static private let numberOfWeeks = 6
 
     var bedMRPModel: BedMRPModel {
         BedMRPModel(
@@ -26,8 +25,8 @@ struct BedViewData: Equatable {
 
     private var bedModel: BedModel {
         BedModel(
-            startAvaibility: BedViewData.startAvaibility,
-            realizationTime: BedViewData.realizationTime,
+            startAvaibility: startAvaibility,
+            realizationTime: realizationTime,
             expectedDemand: weeksData.map { $0.demandInput },
             production: weeksData.map { $0.productionInput }
         )

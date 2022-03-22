@@ -16,7 +16,8 @@ struct BedMRPResult: Decodable, Equatable {
 
 extension BedMRPResult {
     var tables: [Table] {
-        [frame.table,
+        [bed.table,
+         frame.table,
          stand.table,
          legs.table,
          smallBoards.table,

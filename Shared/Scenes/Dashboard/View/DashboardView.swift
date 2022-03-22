@@ -12,7 +12,12 @@ struct DashboardView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ForEach($viewModel.bedData.weeksData, content: WeekInput.init).embedInForm()
+            Group {
+                TextInput(title: "Ilość tygodni", value: $viewModel.bedData.numberOfWeeks)
+                    .keyboardType(.numberPad)
+                ForEach($viewModel.bedData.weeksData, content: WeekInput.init)
+            }
+            .embedInForm()
         }
         .onTapGesture { hideKeyboard() }
         .toolbar { toolbarContent }

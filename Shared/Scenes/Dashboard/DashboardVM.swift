@@ -26,9 +26,16 @@ final class DashboardVM: ObservableObject {
     
     init() {
         let errorTracker = SubjectDriver<Error>()
+
+//        $bedData
+//            .map { $0.numberOfWeeks }
+//            .sink { [weak self] numberOfWeeks in
+//                self?.bedData.weeksData = WeekData.forNumberOfWeeks(numberOfWeeks)
+//            }
+//            .store(in: &cancellables)
         
         input.didTapCalculate
-//            .removeDuplicates()
+        //            .removeDuplicates()
             .handleEvents(receiveOutput: { [weak self] _ in
                 self?.bedMRPResult = nil
                 self?.isLoading = true
@@ -37,6 +44,7 @@ final class DashboardVM: ObservableObject {
                 self?.service.calculateBedMRP(for: self!.bedData.bedMRPModel)
                     .receive(on: DispatchQueue.main)
                     .catch { error -> Empty in
+                        print("Error: \(error)")
                         self?.isLoading = false
                         return Empty()
                     }

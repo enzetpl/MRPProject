@@ -17,7 +17,10 @@ struct ResultView: View {
 //            } else {
 //                tables
 //            }
-            tables
+            VStack(spacing: .large) {
+                tables
+            }
+            .padding(.top, 32)
         }
         .navigationTitle(String.result_label)
         .onReceive(NotificationCenter.Publisher(center: .default, name: UIDevice.orientationDidChangeNotification)) { _ in
@@ -27,9 +30,13 @@ struct ResultView: View {
     
     private var tables: some View {
         ForEach(bedMRPResult.tables) { table in
-            VStack {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(table.title)
-                ResultTableView(items: table.items)
+                    .bold()
+                    .font(.title3)
+                    .padding(.leading, .large)
+                
+                ResultTableView(items: table.items, type: table.type)
                     .embedInHorizontalScrollView()
             }
         }

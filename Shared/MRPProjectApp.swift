@@ -2,8 +2,6 @@
 //  MRPProjectApp.swift
 //  Shared
 //
-//  Created by sebastianstaszczyk on 14/03/2022.
-//
 
 import SwiftUI
 
@@ -11,7 +9,7 @@ import SwiftUI
 struct MRPProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardView()
         }
     }
 }
